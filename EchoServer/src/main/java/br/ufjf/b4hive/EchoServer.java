@@ -10,9 +10,10 @@ public class EchoServer {
 
         int port = 4444;
         ServerSocket serverSocket = new ServerSocket(port);
-        System.err.println("Started server on port " + port);
+        System.err.println("Started server on port " + port + "\nPress CTRL+C to stop the server");
 
-        while (true) {
+        boolean running = true;
+        while (running) {
             // espera blocante até alguma requisição de conexão
             Socket clientSocket = serverSocket.accept();
             System.err.println("Accepted connection from client");
@@ -24,8 +25,12 @@ public class EchoServer {
             // espera a leitura do dado (até terminar conexão)
             String s;
             while (in.hasNextLine()) {
-                s = in.nextLine();
-                out.println(s);
+                s = in.nextLine().trim();
+                // Se o cliente enviar "exit", fecha a conexão
+                if (s.equalsIgnoreCase("pu")) {
+                    s = "CHAINA";
+                }
+                out.println(s.toUpperCase());
             }
 
             // Fecha a conexão (e o socket)
