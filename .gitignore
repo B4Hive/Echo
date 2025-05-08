@@ -1,0 +1,101 @@
+# ===================================
+# IDEs and Editors
+# ===================================
+
+# VSCode
+.vscode/
+
+# IntelliJ IDEA
+.idea/
+*.iml
+*.iws
+out/
+
+# Replit
+.replit
+.replit.db
+.replit.nix
+.nix/
+*.replit
+
+# ===================================
+# OS Generated
+# ===================================
+
+.DS_Store
+Thumbs.db
+
+# ===================================
+# Java
+# ===================================
+
+*.class
+*.jar
+*.war
+*.ear
+*.log
+target/
+build/
+bin/
+.gradle/
+.settings/
+*.classpath
+*.project
+
+# ===================================
+# JavaScript / Node.js
+# ===================================
+
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+dist/
+build/
+
+# ===================================
+# HTML / CSS
+# (no specific generated files to ignore, usually part of the project)
+# If using frameworks (like Vite, React), dist/ is already covered above
+
+# ===================================
+# C++
+# ===================================
+
+*.o
+*.obj
+*.exe
+*.out
+*.a
+*.so
+*.dll
+*.dSYM/
+*.stackdump
+*.gch
+*.pch
+
+# Build folders
+build/
+cmake-build-*/
+
+# CMake
+CMakeFiles/
+CMakeCache.txt
+cmake_install.cmake
+Makefile
+compile_commands.json
+
+# ===================================
+# Others
+# ===================================
+
+*.log
+*.tmp
+*.swp
+*.bak
+*~
+
+# Backup files
+*.orig
+*.rej
