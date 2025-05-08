@@ -24,18 +24,15 @@ public class EchoClient {
         System.err.println("Connected to " + host + " on port " + port + "\nType 'exit' to close the connection");
 
         System.err.print("[CLIENT]: ");
-        // lê da entrada padrão stdin, envia, escreve resposta
         while (stdin.hasNextLine()) {
-            // leitura
             String s = stdin.nextLine();
-            // verifica se o usuário digitou "exit" para encerrar o programa
             if (s.equalsIgnoreCase("exit")) {
+                out.println(s);
                 break;
             }
-            // envio pelo socket
-            out.println("[" + screenName + "]: " + s);
-            // pega resposta
-            System.out.println(in.nextLine());
+            out.println(s);
+            String response = in.nextLine();
+            System.out.println("[" + screenName + "]: " + response);
             System.err.print("[CLIENT]: ");
         }
 
