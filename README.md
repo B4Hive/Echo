@@ -17,8 +17,7 @@ java -jar /target/EchoServer-0.jar;
 ### Non-Maven
 
 ```shell
-cd .\EchoServer\src\main\java\br\ufjf\b4hive\;
-java .\EchoServer.java;
+java .\EchoServer\src\main\java\br\ufjf\b4hive\EchoServer.java;
 ```
 
 ## EchoClient
@@ -36,6 +35,5 @@ java -jar /target/EchoClient-0.jar <Server IP>;
 ### Non-Maven
 
 ```shell
-cd .\EchoClient\src\main\java\br\ufjf\b4hive\;
-java .\EchoClient.java <Server IP>;
+java .\EchoClient\src\main\java\br\ufjf\b4hive\EchoClient.java <Server IP>;
 ```
