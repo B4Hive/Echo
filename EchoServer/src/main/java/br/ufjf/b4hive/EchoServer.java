@@ -7,8 +7,9 @@ import java.net.ServerSocket;
 import java.net.Socket;
 import java.util.Scanner;
 
+@SuppressWarnings("ConvertToTryWithResources")
 public class EchoServer {
-    public static void main(String[] args) throws Exception {
+	public static void main(String[] args) throws Exception {
         InetAddress ipAddress = InetAddress.getLocalHost();
         String ip = ipAddress.getHostAddress();
         int port = 4444;
@@ -29,7 +30,6 @@ public class EchoServer {
         }
     }
 
-    @SuppressWarnings("ConvertToTryWithResources")
     private static void handleClient(Socket clientSocket) {
         try {
             Scanner in = new Scanner(clientSocket.getInputStream());
@@ -48,15 +48,14 @@ public class EchoServer {
         }
     }
 
-    @SuppressWarnings("ConvertToTryWithResources")
 	private static void handleCommands() {
 		Scanner scanner = new Scanner(System.in);
 		while (true) {
 			String command = scanner.nextLine();
 			if (command.equalsIgnoreCase("exit")) {
 				System.out.println("Stopping server...");
-				System.exit(0); // Uncomment this line to stop the server
-				break; // Just break the loop for now
+				System.exit(0);
+				break;
 			} else {
 				System.out.println("Unknown command: " + command);
 			}
