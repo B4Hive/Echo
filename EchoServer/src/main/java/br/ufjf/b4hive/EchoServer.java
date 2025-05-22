@@ -46,8 +46,8 @@ public class EchoServer {
                 } else {
                     if(s.length() > 5 && s.substring(0, 5).equalsIgnoreCase("echo "))
                         outgoing.println(s.substring(5).toUpperCase());
-                    else //adiciona tratamento caso a mensagem inteira seja "echo" sem nada depois
-                        outgoing.println("ERROR: Unknown command");
+                    else
+                        outgoing.println("ERROR: Use 'echo <message>' to send a message");
                 }
             }
             System.out.println("Closing connection with client");
