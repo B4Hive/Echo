@@ -77,6 +77,7 @@ public class EchoServer10 {
         }
     }
 
+    @SuppressWarnings("resource")
     private static void handleCommands() {
         Scanner scanner = new Scanner(System.in);
         while (true) {
