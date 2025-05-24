@@ -6,33 +6,15 @@ Compilation and excecution procedure below.
 
 ## EchoServer
 
-### Maven
-
 ```shell
-cd EchoServer;
-mvn clean install;
-java -jar /target/EchoServer-0.jar;
+java .\EchoServer\src\main\java\br\ufjf\b4hive\EchoServerMulti.java;
 ```
-
-### Non-Maven
-
+or
 ```shell
-java .\EchoServer\src\main\java\br\ufjf\b4hive\EchoServer.java;
+java .\EchoServer\src\main\java\br\ufjf\b4hive\EchoServer10.java;
 ```
 
 ## EchoClient
-
-
-
-### Maven
-
-```shell
-cd EchoClient;
-mvn clean install;
-java -jar /target/EchoClient-0.jar <Server IP>;
-```
-
-### Non-Maven
 
 ```shell
 java .\EchoClient\src\main\java\br\ufjf\b4hive\EchoClient.java <Server IP>;

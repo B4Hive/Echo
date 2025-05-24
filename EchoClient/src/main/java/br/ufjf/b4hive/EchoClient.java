@@ -6,14 +6,15 @@ import java.util.Scanner;
 
 public class EchoClient {
 
-    @SuppressWarnings({"ConvertToTryWithResources"})
+    @SuppressWarnings({ "ConvertToTryWithResources" })
     public static void main(String[] args) throws Exception {
 
         if (args.length != 1) {
             System.out.println("ERROR: java EchoClient.java <host>");
-            //System.exit(1);
+            // System.exit(1);
             Scanner scanner = new Scanner(System.in);
-            //add verification to check if the input is a valid IP address and loop until it is
+            // add verification to check if the input is a valid IP address and loop until
+            // it is
             args[0] = scanner.nextLine();
             scanner.close();
         }
@@ -30,11 +31,20 @@ public class EchoClient {
         while (scanner.hasNextLine()) {
             String s = scanner.nextLine();
             outgoing.println("[" + host + "]: " + s);
-            if (s.equalsIgnoreCase("quit")) break;
-            String response = incoming.nextLine();
-            System.out.println("[SERVER:" + host + "]: " + response);
+            if (s.equalsIgnoreCase("quit"))
+                break;
+
+            if (incoming.hasNextLine()) {
+                String response = incoming.nextLine();
+                System.out.println("[SERVER:" + host + "]: " + response);
+            } else {
+                System.out.println("[SERVER:" + host + "]: Connection closed by server.");
+                break;
+            }
+
             System.out.print("[CLIENT]: ");
         }
+
         incoming.close();
         scanner.close();
         outgoing.close();

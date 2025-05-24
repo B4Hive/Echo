@@ -8,19 +8,19 @@ import java.net.Socket;
 import java.util.Scanner;
 
 @SuppressWarnings("ConvertToTryWithResources")
-public class EchoServer {
+public class EchoServerMulti {
 
-	public static void main(String[] args) throws Exception {
+    public static void main(String[] args) throws Exception {
         InetAddress ipAddress = InetAddress.getLocalHost();
         String ip = ipAddress.getHostAddress();
         int port = 4444;
         @SuppressWarnings("resource")
         ServerSocket serverSocket = new ServerSocket(port);
         System.out.println("Started server on " + ip + ":" + port);
-		System.out.println("Type 'quit' to stop the server.");
+        System.out.println("Type 'quit' to stop the server.");
 
-		Thread commandThread = new Thread(() -> handleCommands());
-		commandThread.start();
+        Thread commandThread = new Thread(() -> handleCommands());
+        commandThread.start();
         boolean running = true;
         while (running) {
             Socket clientSocket = serverSocket.accept();
@@ -44,7 +44,7 @@ public class EchoServer {
                     System.out.println("Client disconnected");
                     break;
                 } else {
-                    if(s.length() > 5 && s.substring(0, 5).equalsIgnoreCase("echo "))
+                    if (s.length() > 5 && s.substring(0, 5).equalsIgnoreCase("echo "))
                         outgoing.println(s.substring(5).toUpperCase());
                     else
                         outgoing.println("ERROR: Use 'echo <message>' to send a message");
@@ -59,18 +59,19 @@ public class EchoServer {
         }
     }
 
-	private static void handleCommands() {
-		Scanner scanner = new Scanner(System.in);
-		while (true) {
-			String command = scanner.nextLine();
-			if (command.equalsIgnoreCase("quit")) {
-				System.out.println("Stopping server...");
-				System.exit(0);
-				break;
-			} else {
-				System.err.println("Unknown command: " + command);
-			}
-		}
-		scanner.close();
-	}
+    private static void handleCommands() {
+        Scanner scanner = new Scanner(System.in);
+        while (true) {
+            String command = scanner.nextLine();
+            if (command.equalsIgnoreCase("quit")) {
+                System.out.println("Stopping server...");
+                System.exit(0);
+                break;
+            } else {
+                System.err.println("Unknown command: " + command);
+            }
+        }
+        scanner.close();
+    }
+
 }
